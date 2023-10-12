@@ -1,8 +1,15 @@
 @import 'variaveis.less';
-@breakpointMobile:  ~"(max-width: 767px)";
+@import 'mapas.less';
+
+@breakpointMobile: ~"(max-width: 767px)";
 @breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
 
-*{
+
+.marginBottom8 {
+    margin-bottom: 8px;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,43 +17,101 @@
 
 }
 
-body{
-    background-color: @corDeFundo;
-    color:@corDostextos;
+body {
+    background-color: #colors[background-color];
+    color: @corDostextos;
 }
-.container{
+
+li {
+    list-style: none;
+}
+
+.container {
     max-width: 960px;
     width: 100%;
     margin: 0 auto;
-    
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+
     @media @breakpointMobile {
         max-width: 70%;
     }
+
     @media @breakpointTablet {
         max-width: 80%;
     }
 }
-header{
+
+header {
     padding: 24px;
-    
-    .profile-avatar{
+
+    .profile-avatar {
         display: block;
-        margin:0 auto 24px;
+        margin: 0 auto 24px;
         border-radius: 50%;
     }
 }
-.profile-bio{
+
+.profile-bio {
     text-align: center;
-    &-name{
-        font-size: 16px;
-        margin-bottom: 8px;
+
+    &-name {
+        font-size: 25px;
+        .marginBottom8();
     }
-    &-subtitle{
-        font-size: 14px;
-        margin-bottom: 8px;
+
+    &-subtitle {
+        font-size: 15px;
+        .marginBottom8();
     }
-    &-description{
+
+    &-description {
         font-size: 14px;
         opacity: .7;
+    }
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 240px;
+    width: 100%;
+    margin: 0 auto;
+
+    li {
+
+        img {
+            transition: all ease .2s;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.projects-links {
+    margin-top: 32px;
+
+    &-item{
+        a {
+            text-decoration: none;
+            background-color: #colors[buttonColor];
+            text-align: center;
+            display: block;
+            padding: 16px 20px ;
+            margin-bottom: 16px;
+            color: #colors[textColor];
+            font-weight: bold;
+            border-radius: 30px;
+            border: 2px solid #colors[buttonColor];
+            transition: all ease .2s;
+            
+            &:hover{
+                color: #colors[buttonColor];
+                background-color: transparent;
+            }
+        }
     }
 }
